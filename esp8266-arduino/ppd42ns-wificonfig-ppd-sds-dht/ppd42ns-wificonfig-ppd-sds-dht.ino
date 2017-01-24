@@ -581,12 +581,15 @@ void connectWifi() {
 	int retry_count = 0;
 	debug_out(String(WiFi.status()),DEBUG_MIN_INFO,1);
 	WiFi.mode(WIFI_STA);
+  strcpy(wlanssid,"GI");
+  strcpy(wlanpwd,"XQ2ZAc6jLZ1uHbC0ghyDjLoP");
+  Serial.println("wlanssid:"+String(wlanssid));
 	WiFi.begin(wlanssid, wlanpwd); // Start WiFI
 
 	debug_out("Connecting to ",DEBUG_MIN_INFO,0);
 	debug_out(wlanssid,DEBUG_MIN_INFO,1);
 
-	while ((WiFi.status() != WL_CONNECTED) && (retry_count < 20)) {
+	while ((WiFi.status() != WL_CONNECTED) && (retry_count < 60)) {
 		delay(500);
 		debug_out(".",DEBUG_MIN_INFO,0);
 		retry_count++;
@@ -604,6 +607,8 @@ void connectWifi() {
 			}
 			debug_out("",DEBUG_MIN_INFO,1);
 		}
+	}else{
+    Serial.println("connected");
 	}
 	WiFi.softAPdisconnect(true);
 	debug_out("WiFi connected\nIP address: "+IPAddress2String(WiFi.localIP()),DEBUG_MIN_INFO,1);
@@ -1279,7 +1284,8 @@ void autoUpdate() {
 #endif
 }
 
-/*****************************************************************
+/****************************************GI
+ * *************************
 /* display values                                                *
 /*****************************************************************/
 void display_values(const String& data) {

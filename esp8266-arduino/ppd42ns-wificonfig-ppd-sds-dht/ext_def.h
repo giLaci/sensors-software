@@ -1,11 +1,11 @@
 // WLAN Konfig
-#define WLANSSID "Freifunk"
-#define WLANPWD ""
+#define WLANSSID "GI"
+#define WLANPWD "XQ2ZAc6jLZ1uHbC0ghyDjLoP"
 
 // Wohin gehen die Daten?
 #define SEND2DUSTI 1
 #define SEND2MADAVI 1
-#define SEND2MQTT 0
+#define SEND2MQTT 1
 #define SEND2INFLUXDB 0
 #define SEND2LORA 0
 #define SEND2CSV 0
