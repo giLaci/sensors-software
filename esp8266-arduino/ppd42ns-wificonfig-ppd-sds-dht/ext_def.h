@@ -5,15 +5,15 @@
 // Wohin gehen die Daten?
 #define SEND2DUSTI 1
 #define SEND2MADAVI 1
-#define SEND2MQTT 1
+#define SEND2MQTT 0
 #define SEND2INFLUXDB 0
-#define SEND2LORA 0
+#define SEND2LORA 1
 #define SEND2CSV 0
-#define SEND2CUSTOM 0
+#define SEND2CUSTOM 1
 
 // Definition eigene API
-#define HOST_CUSTOM "192.168.234.1"
-#define URL_CUSTOM "/data.php"
+#define HOST_CUSTOM "www.hajoskapitany.hu"
+#define URL_CUSTOM "/hometemp/smog2/update.php"
 #define HTTPPORT_CUSTOM 80
 
 // Definition eigene InfluxDB
@@ -30,7 +30,7 @@
 #define MQTT_TOPIC ""
 
 // DHT22, Sensor Temperatur und Luftfeuchte
-#define DHT_READ 1
+#define DHT_READ 0
 #define DHT_TYPE DHT22
 #define DHT_API_PIN 7
 #if defined(ESP8266)
@@ -73,13 +73,13 @@
 #endif
 
 // Automatische Firmware-Updates über WLAN
-#define AUTO_UPDATE 1
+#define AUTO_UPDATE 0
 
 // OLED Display SSD1306 angeschlossen?
 #define HAS_DISPLAY 0
 
 // Wieviele Informationen sollen über die serielle Schnittstelle ausgegeben werden?
-#define DEBUG 3
+#define DEBUG 4
 
 // Definition der Debuglevel
 #define DEBUG_ERROR 1

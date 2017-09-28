@@ -1375,13 +1375,18 @@ void setup() {
 #endif
 	init_display();
 	copyExtDef();
-	display_debug("Reading config from SPIFFS");
-	readConfig();
+ 
+	//display_debug("Reading config from SPIFFS");
+	//readConfig();
+	display_debug("Do NOT read config from SPIFFS, use hard coded");
+  
 	display_debug("Connecting to "+String(wlanssid));
 	connectWifi();						// Start ConnectWifi
-	display_debug("Writing config to SPIFFS");
-	writeConfig();
-	autoUpdate();
+	
+	//display_debug("Writing config to SPIFFS");
+	//writeConfig();
+	//autoUpdate();
+	
 	pinMode(PPD_PIN_PM1,INPUT_PULLUP);	// Listen at the designated PIN
 	pinMode(PPD_PIN_PM2,INPUT_PULLUP);	// Listen at the designated PIN
 	dht.begin();						// Start DHT
@@ -1625,7 +1630,7 @@ void loop() {
 		data_sample_times += Value2Json("signal",signal_strength);
 		data += data_sample_times;
 
-		if ((result_PPD.length() > 0) || (result_DHT.length() > 0) || (result_SDS.length() > 0)) {
+		if ((result_PPD.length() > 0) || (result_DHT.length() > 0) || (result_SDS.length() > 0) || (result_BMP.length() > 0)) {
 			data.remove(data.length()-1);
 		}
 		data += "]}";
